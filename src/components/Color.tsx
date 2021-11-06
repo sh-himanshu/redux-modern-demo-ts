@@ -4,14 +4,14 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { change } from "../features/fontColor";
 
 const Color: React.FC = () => {
-  const initialColorState = useAppSelector((state) => state.color.value);
-  const [color, setColor] = useState(initialColorState);
+  const initialColor = useAppSelector((state) => state.color.value);
+  const [color, setColor] = useState(initialColor);
   const dipatch = useAppDispatch();
   return (
     <form
       action=""
       onSubmit={(e) => {
-        console.log(color);
+        e.preventDefault();
         dipatch(change(color));
       }}
       style={{ marginTop: "25px" }}
